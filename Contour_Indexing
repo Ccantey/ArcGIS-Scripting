@@ -1,0 +1,23 @@
+#### This code takes elevations and determines if they are 2' or 10' intervals
+#### Example Dataset: Elevation | Contour Index |
+####                     462    |    NULL       |
+####                     468    |    NULL       |
+####                     460    |    NULL       |
+####                     466    |    NULL       |
+
+####  RETURNS:
+####                     462    |    2       |
+####                     468    |    2       |
+####                     460    |    10      |
+####                     466    |    2       |
+
+
+#Pre-Logic Script Code
+def Reclass( index):
+  if index % 10 ==0:
+    return 10
+  else:
+    return 2
+
+#ELEVINDEX =
+Reclass(!Elevation!)
