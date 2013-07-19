@@ -1,0 +1,46 @@
+##### Strip leading zeros
+def FindLabel ( [UNIQUE_NO] ):
+  return [UNIQUE_NO].strip("0")
+
+#### Remove all words after 1st word, replace with "lake" 
+def FindLabel ( [NAME] ):
+ s= [NAME].rsplit(' ',1)[0] + '\n' + 'Lake'
+ return s
+
+##### Remove 1st word, space, 2nd word, space
+def FindLabel ([Legend] ):
+ s= [Legend].split(' ',2 )[-1]
+ return s
+
+#### Remove all words after comma
+def FindLabel ( [SOILDESC]  ):
+ s= [SOILDESC] .rsplit(',',1)[0] 
+ return s
+
+##### Remove "unnamed" lakes
+def FindLabel ( [NAME] ):
+  if [NAME] == "Unnamed":
+    return ''
+  else:  
+    return [NAME]
+
+##### Same w/'lakes'
+def FindLabel ( [NAME] ):
+  s = [NAME] 
+  if s == "Unnamed":
+    return ''
+  else:  
+    s = s + '\n' + 'Lake'
+    return s
+
+#### Remove unnamed and those bigger than X
+def FindLabel ( [NAME], [WATERAREA]  ):
+  s = [NAME] 
+  a = float( [WATERAREA] )
+  if s == "Unnamed":
+    return ''
+  if a < 400:
+   return ''
+  else:
+    s = s + '\n' + 'Lake'
+    return s
