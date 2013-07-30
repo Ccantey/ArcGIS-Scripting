@@ -1,6 +1,6 @@
 ##### Strip leading zeros
 def FindLabel ( [UNIQUE_NO] ):
-  return [UNIQUE_NO].strip("0")
+  return [UNIQUE_NO].lstrip("0") #.strip removes all zeros
 
 #### Remove all words after 1st word, replace with "lake" 
 def FindLabel ( [NAME] ):
