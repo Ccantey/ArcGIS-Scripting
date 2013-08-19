@@ -3,6 +3,8 @@
 # To use this script, all you have to do is set your workspace variables (line 12-13).  
 # The script will export all .mxds in the directory to Illustrator, pdf, or any of the other listed formats.
 
+# This script has hung up on very large mxd files... Usually those with large raster datasets
+
 import arcpy, os
 
 # Set OverWrite if files already exist
