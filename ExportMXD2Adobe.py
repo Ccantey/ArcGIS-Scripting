@@ -34,5 +34,5 @@ for m in mapList:
 ##    georef_info = "False"
     
     mxd = arcpy.mapping.MapDocument(os.path.join(ws,m))
-    arcpy.mapping.ExportToAI(mxd, outDir + r'/' + str(m)) #.ExportToPDF, .ExportToAI, etc.
+    arcpy.mapping.ExportToAI(mxd, outDir + r'/' + str(m)) #.ExportToPDF, .ExportToAI, etc., give it the same name as mxd
     del mxd
