@@ -9,6 +9,11 @@ def FindLabel ( [NAME] ):
  s= [NAME].rsplit(' ',1)[0] + '\n' + 'Lake'
  return s
 
+#### Remove all words after Space, append text("station" in this case) at end
+def FindLabel ( [Name]  ):
+ s= [Name] .split(' ',1)[0] + ' Station'
+ return s
+
 ##### Remove 1st word, space, 2nd word, space
 def FindLabel ([Legend] ):
  s= [Legend].split(' ',2 )[-1]
