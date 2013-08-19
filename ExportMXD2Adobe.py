@@ -1,4 +1,8 @@
 # Export batch .mxds to pdf, ai, jpeg, png, emf, eps, svg, bmp, tiff, gif
+
+# To use this script, all you have to do is set your workspace variables (line 12-13).  
+# The script will export all .mxds in the directory to Illustrator, pdf, or any of the other listed formats.
+
 import arcpy, os
 
 # Set OverWrite if files already exist
