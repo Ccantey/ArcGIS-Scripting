@@ -1,0 +1,17 @@
+#create a unique ID for each record in an attribute table
+#Paste function definition into Pre-Logic Script Code
+
+rec= 0
+def autoIncrement():
+  global rec
+  pStart = 1
+  pInterval = 1
+  if (rec ==0):
+    rec=pStart
+  else:
+    rec +=pInterval
+  return rec
+
+#paste the function into small box below Pre-Logic Script Code
+
+autoIncrement()
