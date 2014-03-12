@@ -1,0 +1,23 @@
+#This field calculator associates strings with zoning codes into field
+#Pre-Logic Script Code
+
+def Reclass(zoneCode):
+  if zoneCode == "A-O":
+    return "Agriculture - Open Space"
+
+  if zoneCode == "B-1":
+    return "Neighborhood Business"
+ 
+  if zoneCode == "R-2":
+    return "Single Family and 2 Family Residential"
+
+  if zoneCode == "R-3":
+    return "Medium Density Residential"
+
+  #So on so forth
+ 
+  else:
+    return "NULL"
+
+#ZONEDESC =
+Reclass(!ZONECLASS!)
