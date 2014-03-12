@@ -1,0 +1,38 @@
+## I used this script to determine if features share a common attribute
+## Field Calculator
+
+# This returns duplicates
+
+uniqueList = []
+def isDuplicate(inValue):
+  if inValue in uniqueList:
+    return 1
+  else:
+    uniqueList.append(inValue)
+    return 0
+
+
+# This finds duplicates and gives count
+
+uniqueList = []
+i = 0
+def isDuplicate(inValue):
+    global i
+    if inValue in uniqueList:
+        i += 1
+        return i
+    else:
+        uniqueList.append(inValue)
+    return 0
+
+# This finds duplicates and gives count through dictionary
+
+UniqueDict = {}
+def isDuplicateIndex(inValue):
+    UniqueDict.setdefault(inValue,0)
+    UniqueDict[inValue] += 1
+    return UniqueDict[inValue]
+
+# Dictionary and list methods called respectively:
+
+isDuplicateIndex( !YOUR_FIELD! ) or isDuplicate(!YOUR_FIELD!)
