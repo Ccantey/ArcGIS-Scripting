@@ -1,0 +1,66 @@
+# This code takes pdf files and determines if they are which numerical directory they reside in
+
+#Prelogic script
+
+directory = "S:\EngBB\Maps & Drawings\A-Z drawings\Adrawings"
+def Reclass( name):
+  adraw = name[2:]
+  # if there are more than one file (example: 'A-954-1')
+  if adraw.endswith('-1'):
+    adraw = adraw[:-2]
+  try:
+    if int(adraw) <= 99:
+	  return directory + "\\0001 thru 0099"
+    elif int(adraw) <= 199:
+	  return directory + "\\0100 thru 0199"
+    elif int(adraw) <= 299:
+	  return directory + "\\0200 thru 0299"
+    elif int(adraw) <= 399:
+	  return directory + "\\0300 thru 0399"
+    elif int(adraw) <= 499:
+	  return directory + "\\0400 thru 0499"
+    elif int(adraw) <= 599:
+	  return directory + "\\0500 thru 0599"
+    elif int(adraw) <= 699:
+	  return directory + "\\0600 thru 0699"
+    elif int(adraw) <= 799:
+	  return directory + "\\0700 thru 0799"
+    elif int(adraw) <= 899:
+	  return directory + "\\0800 thru 0899"
+    elif int(adraw) <= 999:
+	  return directory + "\\0900 thru 0999"
+    elif int(adraw) <= 1099:
+	  return directory + "\\1000 thru 1099"
+    elif int(adraw) <= 1199:
+	  return directory + "\\1100 thru 1199"
+    elif int(adraw) <= 1299:
+	  return directory + "\\1200 thru 1299"
+    elif int(adraw) <= 1399:
+	  return directory + "\\1300 thru 1399"
+    elif int(adraw) <= 1499:
+	  return directory + "\\1400 thru 1499"
+    elif int(adraw) <= 1599:
+	  return directory + "\\1500 thru 1599"
+    elif int(adraw) <= 1699:
+	  return directory + "\\1600 thru 1699"
+    elif int(adraw) <= 1799:
+	  return directory + "\\1700 thru 1799"
+    elif int(adraw) <= 1899:
+	  return directory + "\\1800 thru 1899"
+    elif int(adraw) <= 1999:
+	  return directory + "\\1900 thru 1999"
+    elif int(adraw) <= 2099:
+	  return directory + "\\2000 thru 2099"
+    elif int(adraw) <= 2199:
+	  return directory + "\\2100 thru 2199"
+    elif int(adraw) <= 2299:
+	  return directory + "\\2200 thru 2299"
+    elif int(adraw) <= 2399:
+	  return directory + "\\2300 thru 2399"
+    elif int(adraw) <= 2499:
+	  return directory + "\\2400 thru 2499"
+  except:
+    pass
+
+
+
