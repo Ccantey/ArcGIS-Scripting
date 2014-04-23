@@ -62,5 +62,7 @@ def Reclass( name):
   except:
     pass
 
-
+#Given 'Path' is the field we want to edit
+#Path =
+Reclass(!Name!)
 
