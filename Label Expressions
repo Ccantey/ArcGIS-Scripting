@@ -1,5 +1,13 @@
 ### PYTHON LABEL EXPRESSIONS ###
 
+#### Remove all words after 1st word (ex: label address number only from "421 S Fourth St" == "421")
+def FindLabel ( [Adddress] ):
+  try:
+     s = [Adddress].split(' ')
+     return s[0]
+  except:
+    pass
+    
 ##### Strip leading zeros
 def FindLabel ( [UNIQUE_NO] ):
   return [UNIQUE_NO].lstrip("0") #.strip removes all zeros
