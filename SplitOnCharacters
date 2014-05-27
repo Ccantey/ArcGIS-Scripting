@@ -1,0 +1,18 @@
+##Dataset contains spatial join of street intersections, deliminated by "&"
+##Parse Street intersection into two fields
+
+
+## Return everything after '&'
+
+def ReClass(streets):
+  try:
+    rest = streets.split('&', 1)[1]
+    return rest
+  except:
+    pass  ## do not return single items it is taken care of with before function
+
+## Return everything before '&'
+
+def ReClass(streets):
+  rest = streets.split('&', 1)[0]
+  return rest
