@@ -1,4 +1,4 @@
-import arcpy, time, smtplib, random
+import arcpy, time, smtplib
 
 
 # get a list of connected users.
