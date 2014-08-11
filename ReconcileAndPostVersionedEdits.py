@@ -1,4 +1,4 @@
-import arcpy, time, smtplib
+import arcpy, time, smtplib, random
 
 
 # get a list of connected users.
@@ -25,7 +25,7 @@ SERVER = "mail.wirapids.org"
 FROM = "SDE Admin <ccantey@wirapids.org>"
 TO = filteredEmail
 SUBJECT = "Maintenance is about to be performed"
-MSG = "Auto generated Message.\n\rGIS: Server maintenance will be performed in 15 minutes, please save all edits and maps. \nReconciling and posting all edited versions of OS@gisWiRapids.sde. \n\nPlease log off of all ArcGIS applications."
+MSG = "Auto generated Message.\n\rGIS: Server maintenance will be performed in 5 minutes, please save all edits and maps. \nReconciling and posting all edited versions of OS@gisWiRapids.sde. \n\nPlease log off of all ArcGIS applications."
 
 # Prepare actual message
 MESSAGE = """\
@@ -44,30 +44,78 @@ try:
 except:
     pass
 
-#block new connections to the database.
-arcpy.AcceptConnections('Database Connections/###.sde', False)
 
-# wait 15 minutes
-time.sleep(900)
+try:
+    #block new connections to the database.
+    arcpy.AcceptConnections('Database Connections/###.sde', False)
 
-#disconnect all users from the database.
-arcpy.DisconnectUser('Database Connections/###.sde', "ALL")
+    # wait 10 minutes
+    time.sleep(300)
 
-#reconcile users to QC
-arcpy.ReconcileVersions_management("Database Connections/###.sde","ALL_VERSIONS","DBO.QC","DBO.Chris;DBO.Joe;DBO.Kraig;DBO.Marc","LOCK_ACQUIRED","NO_ABORT","BY_OBJECT","FAVOR_EDIT_VERSION","POST","KEEP_VERSION","#")
-print 'reconciled & posted users to QC'
+    #disconnect all users from the database.
+    arcpy.DisconnectUser('Database Connections/###.sde', "ALL")
 
-#reconcile QC to DEFAULT
-arcpy.ReconcileVersions_management("Database Connections/###.sde","ALL_VERSIONS","dbo.DEFAULT","DBO.QC","LOCK_ACQUIRED","NO_ABORT","BY_OBJECT","FAVOR_TARGET_VERSION","POST","KEEP_VERSION","c:/temp/reconcilelog.txt")
-print 'reconciled & posted QC to DEFAULT'
+    #reconcile users to QC
+    arcpy.ReconcileVersions_management("Database Connections/###.sde","ALL_VERSIONS","DBO.QC","DBO.Chris;DBO.Joe;DBO.Kraig;DBO.Marc;DBO.Adam","LOCK_ACQUIRED","NO_ABORT","BY_OBJECT","FAVOR_EDIT_VERSION","POST","KEEP_VERSION","#")
+    print 'reconciled & posted users to QC'
 
-#compress database
-arcpy.Compress_management('Database Connections/###.sde')
-print 'DB compressed'
+    #reconcile QC to DEFAULT
+    arcpy.ReconcileVersions_management("Database Connections/###.sde","ALL_VERSIONS","dbo.DEFAULT","DBO.QC","LOCK_ACQUIRED","NO_ABORT","BY_OBJECT","FAVOR_TARGET_VERSION","POST","KEEP_VERSION","c:/temp/reconcilelog.txt")
+    print 'reconciled & posted QC to DEFAULT'
 
-#Allow the database to begin accepting connections again
-arcpy.AcceptConnections('Database Connections/###.sde', True)
+    #compress database
+    arcpy.Compress_management('Database Connections/###.sde')
+    print 'DB compressed'
+
+    #Allow the database to begin accepting connections again
+    arcpy.AcceptConnections('Database Connections/###.sde', True)
 
 
+    # Email GIS Admin when task is accomplished.
+    SERVER = "mail.wirapids.org"
+    FROM = "SDE Admin <ccantey@wirapids.org>"
+    TO = "SDE Admin <ccantey@wirapids.org>"
+    SUBJECT = "Maintenance was performed"
+    MSG = "Auto generated Message.\n\rGIS: Server maintenance was performed. \nReconciled and posted all edited versions of OS@gisWiRapids.sde. \n\nPlease delete the log file located in C-Temp folder ."
 
+    # Prepare actual message
+    MESSAGE = """\
+    From: %s
+    To: %s
+    Subject: %s
+
+    %s
+    """ % (FROM, ", ".join(TO), SUBJECT, MSG)
+
+    # Send the mail if script is successful
+    try:
+        server = smtplib.SMTP(SERVER)
+        server.sendmail(FROM, TO, MESSAGE)
+        server.quit()
+    except:
+        pass
+except:
+        # Email GIS Admin if task fails.
+    SERVER = "mail.wirapids.org"
+    FROM = "SDE Admin <ccantey@wirapids.org>"
+    TO = "SDE Admin <ccantey@wirapids.org>"
+    SUBJECT = "An error occured."
+    MSG = "Auto generated Message.\n\rGIS: Server maintenance was NOT performed. \nAn error occured while reconciling and posting edited versions of OS@gisWiRapids.sde. \n\nThis most likely occured because this sript does not overwrite the previous reconcil log. Please delete the log file located in C-Temp folder ."
+
+    # Prepare actual message
+    MESSAGE = """\
+    From: %s
+    To: %s
+    Subject: %s
+
+    %s
+    """ % (FROM, ", ".join(TO), SUBJECT, MSG)
+
+    # Send the mail if script is successful
+    try:
+        server = smtplib.SMTP(SERVER)
+        server.sendmail(FROM, TO, MESSAGE)
+        server.quit()
+    except:
+        pass
 
