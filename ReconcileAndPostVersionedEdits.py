@@ -21,7 +21,7 @@ for users in  emailList:
 
 print filteredEmail    
 # take the email list and use it to send an email to connected users.
-SERVER = "mail.wirapids.org"
+SERVER = "Your mail server"
 FROM = "SDE Admin <ccantey@wirapids.org>"
 TO = filteredEmail
 SUBJECT = "Maintenance is about to be performed"
@@ -72,7 +72,7 @@ try:
 
 
     # Email GIS Admin when task is accomplished.
-    SERVER = "mail.wirapids.org"
+    SERVER = "Your mail server"
     FROM = "SDE Admin <ccantey@wirapids.org>"
     TO = "SDE Admin <ccantey@wirapids.org>"
     SUBJECT = "Maintenance was performed"
@@ -96,7 +96,7 @@ try:
         pass
 except:
         # Email GIS Admin if task fails.
-    SERVER = "mail.wirapids.org"
+    SERVER = "Your mail server "
     FROM = "SDE Admin <ccantey@wirapids.org>"
     TO = "SDE Admin <ccantey@wirapids.org>"
     SUBJECT = "An error occured."
