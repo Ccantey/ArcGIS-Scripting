@@ -59,3 +59,7 @@ def FindLabel ( [NAME], [WATERAREA]  ):
   else:
     s = s + '\n' + 'Lake'
     return s
+
+#### Quick formatting to add commas in number with > 4 digits
+def FindLabel ( [SOME_NUMERIC_FIELD]  ):
+  return  "{:,}".format(int( [SOME_NUMERIC_FIELD] ))
