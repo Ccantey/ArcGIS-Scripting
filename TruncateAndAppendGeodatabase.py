@@ -1,13 +1,20 @@
 import arcpy
 import os
 
+##This program appends (copies) feature classes from another agencies geodatabase
+##into our agency's geodatabase. Must first truncate data, then append.
+##This program assumes matching schema. Workaround would be to use field_mapping parameter.
+##This program uses desktop copies of gdb's for proof of concept
+##This program calls the Append_management method 10 times. A loop using ListFeatureClasses() method would work
+
+
 ##Read Water Database
 arcpy.env.workspace = "C:\Users\ccantey\Desktop\Local Government.gdb\WaterDistribution" ##works
 
 datasets = arcpy.ListDatasets(feature_type='feature')
 datasets = [''] + datasets if datasets is not None else []
 
-##Truncate feature classes
+##Truncate all feature classes in current water distributin feature dataset
 try:
   for ds in datasets:
       for fc in arcpy.ListFeatureClasses(feature_dataset=ds):
