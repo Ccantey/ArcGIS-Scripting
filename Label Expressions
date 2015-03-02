@@ -14,8 +14,8 @@ def FindLabel ( [UNIQUE_NO] ):
 
 #### Return file name with directory and file type removed (ex: S:\EngBB\Maps & Drawings\Plats\Assessors Plats\Recorded\Plat No 1.pdf == Plat No 1
 def FindLabel ( [ASSESSORSPLAT] ):
-  pre = [ASSESSORSPLAT] .lstrip("S:\EngBB\Maps & Drawings\Plats\Assessors Plats\Recorded")
-  post = pre.split('.')
+  pre = [ASSESSORSPLAT] .split("S:\EngBB\Maps & Drawings\Plats\Assessors Plats\Recorded\\")
+  post = pre[1].split('.')
   return post[0]
 
 #### Remove all words after 1st word, replace with "lake" 
