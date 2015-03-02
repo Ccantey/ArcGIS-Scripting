@@ -12,6 +12,12 @@ def FindLabel ( [Adddress] ):
 def FindLabel ( [UNIQUE_NO] ):
   return [UNIQUE_NO].lstrip("0") #.strip removes all zeros
 
+#### Return file name with directory and file type removed (ex: S:\EngBB\Maps & Drawings\Plats\Assessors Plats\Recorded\Plat No 1.pdf == Plat No 1
+def FindLabel ( [ASSESSORSPLAT] ):
+  pre = [ASSESSORSPLAT] .lstrip("S:\EngBB\Maps & Drawings\Plats\Assessors Plats\Recorded")
+  post = pre.split('.')
+  return post[0]
+
 #### Remove all words after 1st word, replace with "lake" 
 def FindLabel ( [NAME] ):
  s= [NAME].rsplit(' ',1)[0] + '\n' + 'Lake'
