@@ -1,0 +1,16 @@
+## This script concatinates two fields, one string and one float into a new string field
+
+def ConcatFields(type, watt):
+  watt = int(watt)
+  stringWatt = str(watt)
+  if type == "HPS":
+    return stringWatt + " Watts High Pressure Sodium"
+  if type == "MH":
+    return stringWatt + " Watts Metal Halide"
+  if type == "MV":
+    return stringWatt + " Watts Mercury Vapor"
+  else:
+    return "Unknown"
+    
+  ##Run
+ConcatFields( !gs_lamp_ty!, !gs_old_wat!)
