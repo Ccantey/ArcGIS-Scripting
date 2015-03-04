@@ -1,4 +1,5 @@
 ## This script concatinates two fields, one string and one float into a new string field
+## that complies with the streetlights table in the local govt. information model
 
 def ConcatFields(type, watt):
   watt = int(watt)
