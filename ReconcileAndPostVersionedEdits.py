@@ -25,7 +25,7 @@ SERVER = "Your mail server"
 FROM = "SDE Admin <ccantey@wirapids.org>"
 TO = filteredEmail
 SUBJECT = "Maintenance is about to be performed"
-MSG = "Auto generated Message.\n\rGIS: Server maintenance will be performed in 5 minutes, please save all edits and maps. \nReconciling and posting all edited versions of OS@gisWiRapids.sde. \n\nPlease log off of all ArcGIS applications."
+MSG = "Auto generated Message.\n\rGIS: Server maintenance will be performed in 5 minutes, please save all edits and maps. \nReconciling and posting all edited versions of ####.sde. \n\nPlease log off of all ArcGIS applications."
 
 # Prepare actual message
 MESSAGE = """\
@@ -76,7 +76,7 @@ try:
     FROM = "SDE Admin <ccantey@wirapids.org>"
     TO = "SDE Admin <ccantey@wirapids.org>"
     SUBJECT = "Maintenance was performed"
-    MSG = "Auto generated Message.\n\rGIS: Server maintenance was performed. \nReconciled and posted all edited versions of OS@gisWiRapids.sde. \n\nPlease delete the log file located in C-Temp folder ."
+    MSG = "Auto generated Message.\n\rGIS: Server maintenance was performed. \nReconciled and posted all edited versions of ####.sde. \n\nPlease delete the log file located in C-Temp folder ."
 
     # Prepare actual message
     MESSAGE = """\
