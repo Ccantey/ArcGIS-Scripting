@@ -22,7 +22,7 @@ for users in  emailList:
 print filteredEmail    
 # take the email list and use it to send an email to connected users.
 SERVER = "Your mail server"
-FROM = "SDE Admin <ccantey@wirapids.org>"
+FROM = "SDE Admin <ccantey@####>"
 TO = filteredEmail
 SUBJECT = "Maintenance is about to be performed"
 MSG = "Auto generated Message.\n\rGIS: Server maintenance will be performed in 5 minutes, please save all edits and maps. \nReconciling and posting all edited versions of ####.sde. \n\nPlease log off of all ArcGIS applications."
@@ -77,8 +77,8 @@ try:
 
     # Email GIS Admin when task is accomplished.
     SERVER = "Your mail server"
-    FROM = "SDE Admin <ccantey@wirapids.org>"
-    TO = "SDE Admin <ccantey@wirapids.org>"
+    FROM = "SDE Admin <ccantey@####>"
+    TO = "SDE Admin <ccantey@####>"
     SUBJECT = "Maintenance was performed"
     MSG = "Auto generated Message.\n\rGIS: Server maintenance was performed. \nReconciled and posted all edited versions of ####.sde. \n\nPlease delete the log file located in C-Temp folder ."
 
@@ -101,8 +101,8 @@ try:
 except:
         # Email GIS Admin if task fails.
     SERVER = "Your mail server "
-    FROM = "SDE Admin <ccantey@wirapids.org>"
-    TO = "SDE Admin <ccantey@wirapids.org>"
+    FROM = "SDE Admin <ccantey@####>"
+    TO = "SDE Admin <ccantey@####>"
     SUBJECT = "An error occured."
     MSG = "Auto generated Message.\n\rGIS: Server maintenance was NOT performed. \nAn error occured while reconciling and posting edited versions of OS@gisWiRapids.sde. \n\nThis most likely occured because this sript does not overwrite the previous reconcil log. Please delete the log file located in C-Temp folder ."
 
