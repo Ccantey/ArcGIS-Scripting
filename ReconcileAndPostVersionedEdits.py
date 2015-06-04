@@ -46,6 +46,10 @@ except:
 
 
 try:
+    #Weekly synchronization of County parcels
+    arcpy.SynchronizeChanges_management("GIS Servers/gis on #### (user)/GeoData/####y_GeoData.GeoDataServer","DBO.####sParcels","Database Connections/####.sde","FROM_GEODATABASE1_TO_2","IN_FAVOR_OF_GDB1","BY_OBJECT","DO_NOT_RECONCILE")
+    print 'Synchronized parcels from County'
+    
     #block new connections to the database.
     arcpy.AcceptConnections('Database Connections/###.sde', False)
 
