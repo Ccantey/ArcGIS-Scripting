@@ -9,7 +9,7 @@ emailList = [user.Name for user in arcpy.ListUsers("Database Connections/###.sde
 filteredEmail = []
 for users in  emailList:
     try:
-      #print users.split('\\',1)[1].split('"',1)[0] + "@wirapids.org"
+      #print users.split('\\',1)[1].split('"',1)[0] + "@###.org"
       if users.split('\\',1)[1].split('"',1)[0] == 'ARCGIS':
           #do not mail to 'ARCGIS' user (web services)
           pass
@@ -104,7 +104,7 @@ except:
     FROM = "SDE Admin <ccantey@####>"
     TO = "SDE Admin <ccantey@####>"
     SUBJECT = "An error occured."
-    MSG = "Auto generated Message.\n\rGIS: Server maintenance was NOT performed. \nAn error occured while reconciling and posting edited versions of OS@gisWiRapids.sde. \n\nThis most likely occured because this sript does not overwrite the previous reconcil log. Please delete the log file located in C-Temp folder ."
+    MSG = "Auto generated Message.\n\rGIS: Server maintenance was NOT performed. \nAn error occured while reconciling and posting edited versions of OS@###.sde. \n\nThis most likely occured because this sript does not overwrite the previous reconcil log. Please delete the log file located in C-Temp folder ."
 
     # Prepare actual message
     MESSAGE = """\
