@@ -14,7 +14,7 @@ for users in  emailList:
           #do not mail to 'ARCGIS' user (web services)
           pass
       else:
-        filteredEmail =  users.split('\\',1)[1].split('"',1)[0] + "@wirapids.org"
+        filteredEmail =  users.split('\\',1)[1].split('"',1)[0] + "@####.org"
     except:
         #do not mail to 'DBO' user (me)
       pass
