@@ -26,8 +26,6 @@ for folders in subdirectories[1:]:
             if str(file).find(".pdf") > -1:
                 writer.writerow([str(file).replace(".pdf", ""), file])
 
-        del writer
-
         # the input feature class must first be GDB attachments enabled
         # arcpy.EnableAttachments_management(input)
 
