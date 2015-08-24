@@ -1,5 +1,15 @@
 ### PYTHON LABEL EXPRESSIONS ###
 
+#### Parse a PLSS string, ex: "W146T0200N0020E"
+def FindLabel ( [lndkey],  [sectionkey] ):
+  s = [lndkey] .split('T0',1)[1]
+  twp = s.split('0N',1)[0] 
+  r = s.split('0N',1)[1]
+  range = r.split('0E',1)[0]
+  #return [sectionkey]
+  return 'Twp ' +twp +'\n Range ' + range + '\nSection ' + [sectionkey] 
+
+
 #### Remove all words after 1st word (ex: label address number only from "421 S Fourth St" == "421")
 def FindLabel ( [Adddress] ):
   try:
