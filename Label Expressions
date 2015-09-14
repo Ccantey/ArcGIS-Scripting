@@ -11,12 +11,16 @@ def FindLabel ( [lndkey],  [sectionkey] ):
 
 #### Strip a two word name (ex: Minneapolis City) of its appendage  
 def FindLabel ( [mcdbyzip.csv.name] ):
+def FindLabel ( [mcdbyzip.csv.name] ):
   a = [mcdbyzip.csv.name] 
   if 'City' in a: 
-    cleanA = a.rsplit(' ')[0]  
+    cleanA = a.rsplit(' City')[0]  
     return cleanA
   if 'Township' in a:
-    cleanA = a.rsplit(' ')[0]  
+    cleanA = a.rsplit(' Township')[0]  
+    return cleanA
+  if 'Unorganized' in a:
+    cleanA = a.rsplit(' Unorganized')[0]  
     return cleanA
 
 
