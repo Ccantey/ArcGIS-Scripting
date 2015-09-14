@@ -9,6 +9,16 @@ def FindLabel ( [lndkey],  [sectionkey] ):
   #return [sectionkey]
   return 'Twp ' +twp +'\n Range ' + range + '\nSection ' + [sectionkey] 
 
+#### Strip a two word name (ex: Minneapolis City) of its appendage  
+def FindLabel ( [mcdbyzip.csv.name] ):
+  a = [mcdbyzip.csv.name] 
+  if 'City' in a: 
+    cleanA = a.rsplit(' ')[0]  
+    return cleanA
+  if 'Township' in a:
+    cleanA = a.rsplit(' ')[0]  
+    return cleanA
+
 
 #### Remove all words after 1st word (ex: label address number only from "421 S Fourth St" == "421")
 def FindLabel ( [Adddress] ):
