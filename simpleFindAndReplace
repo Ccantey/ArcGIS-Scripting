@@ -1,0 +1,8 @@
+def ReClass(name):
+  try:
+    newname = name.replace("CR-","County Road ")
+    return newname
+  except:
+    pass
+    
+## ReClass()
