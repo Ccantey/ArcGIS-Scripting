@@ -21,3 +21,15 @@ def Reclass(zoneCode):
 
 #ZONEDESC =
 Reclass(!ZONECLASS!)
+
+
+#This field calculator determines the string length of an attribute and return the appropriate attribute (prepends zeros)
+def reclass(district):
+  length = len(district)
+  if length < 2:
+    return "0" + district
+  else:
+    return district
+  
+  # HouseDistrict =
+  reclass( !MNLEGDIST! )
