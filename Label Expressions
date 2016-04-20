@@ -1,5 +1,27 @@
 ### PYTHON LABEL EXPRESSIONS ###
 
+#### Parse a string based on some conditions
+## example attrbutes
+Brainard P-1 W-4
+Brainard P-1 W-5
+Brainard Twp
+Brainard P-2
+
+import re
+def FindLabel ( [PCTNAME] ):
+  a = [PCTNAME]
+  if 'W-' in a and 'P-' in a:
+    full = a.split('W-')[1]
+    return 'W- '+full
+  elif 'W-' in a and 'P-' not in a:
+    ward = a.split('W-')[1]
+    return 'W- '+ ward
+  elif 'P-' in a and 'W-' not in a:
+    precinct = a.split('P-')[1]
+    return 'P- '+precinct
+  else:
+    return a
+
 #### Parse a PLSS string, ex: "W146T0200N0020E"
 def FindLabel ( [lndkey],  [sectionkey] ):
   s = [lndkey] .split('T0',1)[1]
