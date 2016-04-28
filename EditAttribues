@@ -33,3 +33,15 @@ def reclass(district):
   
   # HouseDistrict =
   reclass( !MNLEGDIST! )
+  
+  #This field calculator determines a pct of something - in this case race:nonewhite
+  def reclass(pop, white):
+  if pop == 0:
+    return 0
+  else:
+    pct = (pop - white)*100 /pop
+    return pct
+
+
+  # PctNonWhite =
+  reclass( !populaiton!, !white!) 
