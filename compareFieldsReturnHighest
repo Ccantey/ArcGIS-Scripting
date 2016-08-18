@@ -1,0 +1,27 @@
+## Compare many (unlimited/non strict number) of fields
+## Return the name of the field that holds the highest value
+
+# A function that takes unlimited number of key:value pairs and returns the key with highest value
+
+def classifyWinner(**kwargs):
+    highest = max(kwargs.values())
+    winner = [k for k,v in kwargs.items() if v == highest]
+    if len(winner) == 1:
+      return winner[0]
+    else:
+      return 'TIE'
+    
+## run president
+classifyWinner( DFL = !USPRSDFL! , R = !USPRSR! , LIB = !USPRSLIB!, SWP = !USPRSSWP!, CP = !USPRSCP!, CG = !USPRSCG!, GP = !USPRSGP!, GR = !USPRSGR!, SL = !USPRSSL!, JP = !USPRSJP!, WI = !USPRSWI!)
+
+## run US senate - in current dataset there was a fudge up in data - all US SenateDFL are highest - i must have done a shotty field calculator by accident
+classifyWinner( DFL = !USSENDFL! , R = !USSENR! , GR = !USSENGR! ,MOP = !USSENMOP! , WI = !USSENWI!)
+
+## run US house
+classifyWinner( DFL = !USREPDFL! , R = !USREPR! , IR = !USREPIP! , WI = !USREPWI! )
+
+## run MN Senate
+classifyWinner( DFL = !MNSENDFL! , R = !MNSENR! , IP = !MNSENIP! , WI = !MNSENWI! )
+
+## run MN house
+classifyWinner( DFL = !MNLEGDFL! , R = !MNLEgR! , IP = !MNLEGIP! , WI = !MNLEGWI! )
