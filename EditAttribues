@@ -1,3 +1,13 @@
+#This field calculator checks the winner and returns a net win result
+def reclass(a, b, c):
+  if a == 'DFL':
+    total = b-c
+    return total
+  else:
+    return 0
+      
+reclass( !MNSENWIN!, !MNSENDFL!, !MNSENR!)
+
 #This field calculator associates strings with zoning codes into field
 #Pre-Logic Script Code
 
